@@ -107,7 +107,7 @@ li{
     position: relative;
 }
 
-.header_main::after{
+.header_main::before{
     content: "";
     position: absolute;
     top: 0;
@@ -117,6 +117,18 @@ li{
     z-index: -1;
     opacity: 0.2;
     background:#16c9f6;
+}
+.header_main::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background: url('../images/ATTArmenia_files/header-mask.png') no-repeat center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-size: cover;
 }
 
 @keyframes text{
@@ -358,6 +370,16 @@ background: transparent!important;
  
 .home_card:hover .card_body p{
  color: #50d1c0!important;
+}
+.home_about_img_right, .coool{
+transition: 1s;
+}
+.home_about_img_right:hover{
+    transform: rotate(25deg);
+}
+
+.coool:hover{
+    transform: translateY(1rem);
 }
 
 
