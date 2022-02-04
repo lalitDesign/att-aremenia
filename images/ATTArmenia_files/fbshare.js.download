@@ -1,0 +1,68 @@
+function fbpubs(userid,facebookAppId,href,img,defaultimg,title,description,caption)
+		{
+			var user_id = userid;
+			var facebookAppId = facebookAppId;
+			console.log(img);
+			console.log(defaultimg);
+			if(img != "")
+			{
+				var post_image = img;
+			}
+			else
+			{
+				var post_image = defaultimg;
+			}
+			
+			if(user_id === 0)
+			{
+				window.location = "/user/login";
+			}
+			else
+			{
+				  /* FB.init({appId: facebookAppId, status: true, cookie: true, version : 'v2.10'});
+				 var obj = {
+					  'method': 'share',
+					  'href': href,
+					  'link': href,
+					  'picture': post_image,
+					  'title': title,
+					  'caption': caption,
+					 'description': description,
+					};
+
+					function callback(response) {
+					 
+					}
+
+					FB.ui(obj, callback);   */
+					  FB.init({
+					appId            : facebookAppId,
+					status           : true,
+					cookie           : true,
+					version          : 'v2.10'                
+				});
+				 FB.ui(
+					{
+						
+						method: 'share_open_graph',
+						action_type: 'og.shares',
+						display: 'popup',
+						
+						action_properties: JSON.stringify({
+								object: {
+								  'og:href': href,
+								  'og:url': href,
+								  'og:title': title,
+								  'og:description': description,
+								  'og:image': post_image,
+								}
+							  })
+						
+					},
+					function(response){
+						//alert('Add share successfull');
+					});    
+			 
+			}
+			return false;
+		}

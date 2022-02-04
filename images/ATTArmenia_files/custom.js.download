@@ -1,0 +1,366 @@
+$(document).ready(function(){
+	
+	
+	setTimeout(function(){ $("#user_list_table_length select").addClass("form-control nocontrol"); }, 500);
+ 
+
+    $('#fav_posts_table').DataTable({
+
+		"pageLength": 25,
+
+		columnDefs: [
+
+            { width: 150, targets: 1 },
+
+            { "width": "15%", "targets": 2 },
+
+        ],
+
+	});
+
+	
+
+	$(document).on('change', '#post_type', function() {
+
+	  $.ajax({
+
+		  type: "POST",
+
+		  url: "/index/getContainByPostType",
+
+		  data: data,
+
+		  success: success,
+
+		  dataType: dataType
+
+		});
+
+	});
+
+});
+			
+/*  
+Modified By :- PS
+Created On :- 10 April 2018
+Author:- TRS Software Solutions
+*/
+ function youtubeurlvalid()
+	{
+		
+		document.getElementById("submit").disabled = false;
+		$("#source").closest('div').find("span").remove();
+		$("#source").css({ 'border-color' : '' });
+		
+		     var checkedvalue = $('#addfile:checked').val();
+			
+		if(checkedvalue  !='addlink'){
+			//$("#source").closest('div').append("<span class='youtubeerrormsg1'> Please Select Share Button.</span>");
+			// alert("Please Select Share Button");
+		}
+		else{ 
+			var url = $('#source').val();
+			if (url != undefined || url != '') {
+				var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+				
+				 var matches = url.match(p);
+				 
+				 // alert(matches);
+				 
+				if(matches){
+        
+					
+					$("#source").closest('div').find("span").remove();
+					$("#source").css({ 'border-color' : '' });
+				} 
+				else {
+					
+					document.getElementById("submit").disabled = true;
+				
+					//console.log($('.youtubeerrormsg').length  )
+					if($('.youtubeerrormsg').length == 0) {
+					 
+						$("#source").css("border-color", "red");
+						$("#source").closest('div').append("<span class='youtubeerrormsg'> Please enter valid YouTube URL.</span>");
+
+					}
+				}
+			}
+		}
+		
+	}
+
+
+	
+	
+function checkphotovideo(role,author_of_article)
+{
+	
+		
+	var user_role = role;
+	
+	
+	if( user_role != 1 && user_role != 3 ){
+	
+		var author_name = $('input[name=owner]:checked').val();
+		var otherwise_pub_name = $('#otherwise_pub_name').val();
+		
+		if(author_name  === undefined && !otherwise_pub_name){
+		
+			// alert(author_of_article);		
+
+			return false;
+		
+		}
+	}
+	
+	var file = $("#img_1").val();
+	if(file == "")
+	{
+		//alert('Please select Image.');
+	}
+	
+	var checkedvalue = $('#addfile:checked').val();
+	
+	var content = tinyMCE.get('text').getContent(); // msg = textarea id
+	
+	if((checkedvalue == 'addphoto') || (checkedvalue == 'addvideo')){
+		if($('#arti_ref').val() == "" || $('#arti_ref').val() == null ) 
+		{
+			if( content == "" || content == null){
+				alert('Text cannot be empty.');
+				return false;
+			}
+		}
+		// else{	
+			// var myRegExp =/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i;
+		 
+			// var articlerefvalue = $('#arti_ref').val();
+			// if (!myRegExp.test(articlerefvalue)){
+				
+				// alert("Please enter valid url");
+			// }
+			// else{
+								
+				// $('#text').removeAttr('required');
+				
+			// }
+			
+		// }
+	}else if($('#addfile:checked').val() != 'addlink'){
+
+		if( content == "" || content == null){
+			alert('Text cannot be empty.');
+			return false;
+		}
+		
+	}
+	
+	var checkedvalue = $('#addfile:checked').val();
+	
+	//alert(url);
+	//link can't be null
+
+	if(checkedvalue == 'addlink'){
+		
+		$('#file').removeAttr('required');
+		
+		var source_url = $('#source').val(); 
+		$("#title").attr("required", false);
+		
+		
+		
+		//alert(source_url);
+
+		if(source_url != '' ){
+
+		
+			if($('.youtubeerrormsg').length == 0){
+
+				document.getElementById("submit").disabled = false;
+
+			}else{
+
+				document.getElementById("submit").disabled = true;
+			}
+			
+		}else{
+
+			document.getElementById("submit").disabled = true;
+			alert("Please enter source url");
+			$("#source").css("border-color", "red");
+			$("#source").closest('div').append("<span class='youtubeerrormsg'> Please enter valid YouTube URL.</span>");
+		}
+ 
+	}
+		else{
+			$('#file').attr('required',true);
+			$("#title").attr("required", true);
+		}
+	
+	
+}
+
+ 			
+/*  
+Modified By :- PS
+Created On :- 26 April 2018
+Author:- TRS Software Solutions
+*/
+  // function articlereference_url(){
+	  
+		// document.getElementById("submit").disabled = false;
+		// $("#arti_ref").closest('div').find("span").remove();
+		// $("#arti_ref").css({ 'border-color' : '' });
+
+		// var myRegExp =/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i;
+
+		// var articlerefvalue = $('#arti_ref').val();
+		
+		// if (!myRegExp.test(articlerefvalue)){
+			
+			// document.getElementById("submit").disabled = true;
+			
+			// if($('.articleerrormsg').length == 0) {
+				// $("#arti_ref").css("border-color", "red");
+				// $("#arti_ref").closest('div').append("<span class='articleerrormsg'> Please enter valid  URL.</span>");
+			// }
+			// else{
+				// $("#arti_ref").closest('div').find("span").remove();
+				// $("#arti_ref").css({ 'border-color' : '' });
+				// document.getElementById("submit").disabled = false;
+			// }
+		// }
+
+	// }
+	
+	
+	 
+		 
+	$(document).ready(function() {
+
+	$('user_list_table_length').addClass('form-control');
+		var user_list_table_dt = $('#user_list_table').DataTable( {
+			
+			"language": {
+				"lengthMenu": "Show _MENU_ Entries",
+		 
+			},
+
+			"processing": true,
+			"serverSide": true,
+			 "bFilter": false,
+			"searching": false,
+			"order": [],
+			
+			"columnDefs": [
+							{ "orderable": false, "targets": [0,2,4], }
+							],
+			destroy: true,
+			"ajax": {
+				"url": "/index/referencepaginator",
+				"type": "POST",
+				// "data": {
+					// "tabletype": $('.reference_article_picker').val(),
+				// }
+				"data": function ( d ) {
+					 
+					 d.tabletype = $('.reference_article_picker').val();
+					 d.articleid = $('#articleid').val();
+					d.articletitle = $('#articlesearch').val();
+				}
+			},
+
+		} );
+		
+		
+		$(document).on('change keyup keydown','.reference_article_picker',function(){
+			// user_list_table_dt.destroy();
+			// var reftableurl = $('.reference_article_picker').val();
+			//alert(reftableurl);
+			// $('#ref_article_table_url_field').val(reftableurl);
+			user_list_table_dt.ajax.reload();
+			
+			
+		});
+
+
+		$(document).on('click','#articlesearchbtn',function(){
+			
+			user_list_table_dt.ajax.reload();
+			
+			
+		});
+		$(document).on('change keyup keydown','#articlesearch',function(){
+			
+			user_list_table_dt.ajax.reload();
+			
+			
+		});
+$(document).on('change keyup keydown','#articleid',function(){
+			
+			user_list_table_dt.ajax.reload();
+			
+			
+		});
+		
+		
+		$(document).on('click','#refarticlesearch',function(){
+			// user_list_table_dt.destroy();
+			var modal = document.getElementById('refarticleModal');
+			var span = document.getElementsByClassName("close")[0];	
+			modal.style.display = "block";
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+			
+		});
+		
+		/**
+			author - pragati
+			
+			modified by sanjeet | 18th july 2018
+				beautified code
+				added direct title support
+		*/
+		$(document).on('click','.refarticle',function(){
+				
+			$('#refarticleModal').modal('toggle');
+			// var id = $(this).attr;
+			//var id = $("#reftitle").data("refarticleid");
+
+			var refarticleid= $(this).data("refarticleid");
+			var orgrefarticleid= $(this).data("orgrefarticleid");
+			var refarticletitle= $(this).data("refarticletitle");
+
+			$('#referencearticle_id').val(refarticleid);
+			$('#referencearticle_id_org').val(orgrefarticleid);
+			$('#referencearticle_title').val(refarticletitle);
+			//$('#title').val(refarticletitle);
+
+			//$('#arti_ref').val(refarticletitle);
+			var reftableurl = $('.reference_article_picker').val();
+
+			$('#reference_table_url').val(reftableurl);
+
+			var refarticle_url= $(this).data("reflink");
+			$('#refrence_url').val(refarticle_url);
+			$('#refarticleModal').modal('hide');
+			
+		});
+		
+	
+	} );
+		 
+	  
+	
+	 
+	 
+	 
+	 		
+ 
