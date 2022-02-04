@@ -278,8 +278,14 @@ background: transparent!important;
  }
 
 
+ .main_blog_car_head{
+    border: 1px solid #CEE8F5;
 
+}
+.main_blog_car_head:nth-child(even){
+    background: #CEE8F5;
 
+}
 
 .main_blog_car_head select option, .main_blog_car_head select{
     font-size: 14px;
@@ -352,4 +358,15 @@ background: transparent!important;
  
 .home_card:hover .card_body p{
  color: #50d1c0!important;
+}
+
+
+.main_blog_car_content1{
+    width: 20%;
+}
+.main_blog_car_content2{
+    width: 60%;
+}
+.main_blog_car_content3{
+    width: 20%;
 }
