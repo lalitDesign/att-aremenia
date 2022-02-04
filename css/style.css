@@ -103,7 +103,7 @@ li{
     background-image:linear-gradient(rgba(0,168,255,0.3), rgba(0,168,255,0.3)), url('../images/ATTArmenia_files/pexels-pixabay-355747.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+    /* clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%); */
     position: relative;
 }
 
@@ -369,4 +369,11 @@ background: transparent!important;
 }
 .main_blog_car_content3{
     width: 20%;
+}
+
+.fixed{
+    position: fixed!important;
+    top:0!important;
+    left:0!important;
+    width: 100%;
 }

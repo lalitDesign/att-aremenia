@@ -760,6 +760,24 @@
 
   <script>
 
+// $(window).scroll(function(){
+//   var sticky = $('.nav_two'),
+//       scroll = $(window).scrollTop();
+
+//   if (scroll >= 100) nav_two.addClass('fixed');
+//   else sticky.removeClass('fixed');
+// });
+
+$(window).scroll(function(){
+  if ($(window).scrollTop() >= 200) {
+    $('.nav_two').addClass('fixed');
+   }
+   else {
+    $('.nav_two').removeClass('fixed');
+   }
+});
+
+
     $('.desk-home-owl1-car').owlCarousel({
       loop: false,
       margin: 10,
