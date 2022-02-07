@@ -384,7 +384,9 @@ background: transparent!important;
     font-size: 14px;
     margin-top: -1rem;
 }
- 
+.home_about_img_right{
+    border: 1px solid #50d1c0;
+} 
 .home_card:hover .card_body p{
  color: #50d1c0!important;
 }
