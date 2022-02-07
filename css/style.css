@@ -391,10 +391,10 @@ background: transparent!important;
  color: #50d1c0!important;
 }
 .home_about_img_right, .coool{
-transition: 1s;
+transition: 2s;
 }
 .home_about_img_right:hover{
-    transform: rotate(25deg);
+    transform: rotate(360deg);
 }
 
 .coool:hover{
@@ -427,6 +427,10 @@ transition: 1s;
 
 .coool img{
     height: 8rem!important;
+}
+
+.px-1 img, .sec_left_main_child_content img{
+    border: 2px solid #50d1c0;
 }
 
 
