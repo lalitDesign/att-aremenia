@@ -354,6 +354,7 @@ background: transparent!important;
 }
 
 
+
 .home_about_btn{
     text-decoration: none;
     border: 1px solid #50d1c0;
@@ -449,6 +450,13 @@ transition: 2s;
     border-radius: 0;
     cursor: pointer;
 }
+.desk-home-owl1-car .owl-nav, .desk-home-owl3-car .owl-nav{
+    display: block!important;
+    }
+.desk-home-owl3-car .owl-dots, .desk-home-owl1-car .owl-dots{
+    display: none!important;
+}
+
 
 @media only screen and (max-width: 768px){
     html{
@@ -521,16 +529,17 @@ transition: 2s;
         width: 10rem;
         height: 6rem;
     }
-    .desk-home-owl1-car .owl-nav{
+    .desk-home-owl1-car .owl-nav, .desk-home-owl3-car .owl-nav{
         display: none!important;
         }
 
-    .desk-home-owl3-car .owl-nav{
-        display: none!important;
+    
+    .desk-home-owl3-car .owl-dots, .desk-home-owl1-car .owl-dots{
+        margin-top: 2rem;
     }
 
     .desk-home-owl3-car .owl-dots, .desk-home-owl1-car .owl-dots{
-        margin-top: 2rem;
+        display: block!important;
     }
         
 }
