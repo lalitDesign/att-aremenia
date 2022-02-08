@@ -11,6 +11,7 @@ li{
 }
 .nav_one{
     width: 100%;
+    padding: 0 3rem;
 }
 .nav_one_logo img{
     width: 8rem;
@@ -78,9 +79,9 @@ li{
 .nav_two_logo {
     margin-left: 3rem;
 }
-.navbar_nav_link{
+/* .navbar_nav_link{
     margin-left: -8rem;
-}
+} */
 .navbar_nav_link ul li a{
     color: #FFF;
     font-size: 18px;
@@ -146,6 +147,7 @@ li{
     }
 } */
 
+
 .banner_img h1{
 
     overflow: hidden;
@@ -163,6 +165,9 @@ li{
     transform: translateX(-50%);
 }
 
+.shape_head{
+    padding: 1.5rem;
+}
 .desk-home-owl2-car .owl-item{
     width: 200px!important;
     height: 90px!important;
@@ -431,6 +436,88 @@ transition: 2s;
 
 .px-1 img, .sec_left_main_child_content img{
     border: 2px solid #50d1c0;
+}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 15%;
+    right: 40px;
+    z-index: 99;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px){
+    html{
+        font-size: 13px;
+    }
+
+    .nav_one{
+        padding: 0 1rem;
+    }
+    .nav_one_logo{
+        margin-left: -1.5rem;
+    }
+
+    .nav_two_logo{
+        margin-left: .5rem;
+    }
+
+    .banner_img h1 {
+    font-size: 59px;
+    width: 100%;
+    word-break: break-all;
+    position: static;
+    white-space: normal;
+    transform: none;
+    margin-top: 10rem;
+    }
+    .country_flags {
+        padding-left: 0;
+    }
+    .nav_toggle{
+        border: 1px solid #fff!important;
+    }
+    .nav_toggle:focus{
+        box-shadow: none!important;
+    }
+
+    .shape_head{
+        display: flex;
+        justify-content: space-between;
+        padding: .5rem;
+    }
+    .shape_head_select{
+        width: 51%!important;
+        position: static!important;
+        transform: none!important;
+    }
+    .shape_head h4{
+        position: static!important;
+        transform: none!important;
+        text-align: left!important;
+        margin-bottom: 0!important;
+    }
+
+    .desk-home-owl3-car .owl-item img {
+        height: 15rem;
+    }
+    .coool img {
+        height: 15rem!important;
+    }
+    .sec_left_main_child_content img{
+        height: 5rem!important;
+    }
+    .blog_section, .useful_link_section{
+        margin-top: 3rem!important;
+    }
+    .main_blog_car_content1 img {
+        width: 10rem;
+        height: 6rem;
+    }
 }
 
 
