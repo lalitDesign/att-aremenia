@@ -521,6 +521,18 @@ transition: 2s;
         width: 10rem;
         height: 6rem;
     }
+    .desk-home-owl1-car .owl-nav{
+        display: none!important;
+        }
+
+    .desk-home-owl3-car .owl-nav{
+        display: none!important;
+    }
+
+    .desk-home-owl3-car .owl-dots, .desk-home-owl1-car .owl-dots{
+        margin-top: 2rem;
+    }
+        
 }
 
 
