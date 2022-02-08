@@ -467,13 +467,16 @@ transition: 2s;
     }
 
     .banner_img h1 {
-    font-size: 59px;
+    font-size: 58px;
     width: 100%;
-    word-break: break-all;
+    /* word-break: break-all; */
     position: static;
     white-space: normal;
     transform: none;
     margin-top: 10rem;
+    }
+    .art{
+        display: block;
     }
     .country_flags {
         padding-left: 0;
